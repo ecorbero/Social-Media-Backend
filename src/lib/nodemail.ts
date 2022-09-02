@@ -1,18 +1,22 @@
 import nodemailer from 'nodemailer';
+import { config } from 'dotenv';
 
 export const sendEmailVerify = async (subject: string, to: string, html: string) => {
 
+    config();
+
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.mailtrap.io',
+        port: 2525,
         auth:{
-            user: 'HERE YOUR GMAIL ADRESS',
-            pass: 'HERE YOUR GMAIL PASSWORD'
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD
         }
     });
 
 
     const mailOptions = {
-        from: 'HERE YOUR GMAIL ADDRESS',
+        from: 'social@ecorbero.com',
         to: to,
         subject: subject,
         html: html,

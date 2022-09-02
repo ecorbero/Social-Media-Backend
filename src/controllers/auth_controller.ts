@@ -12,6 +12,8 @@ export const login = async ( req: Request, res: Response): Promise<Response> => 
 
     try {
 
+        console.log("kjjlk");
+
         const { email, password }: SignIn = req.body;
 
         const conn = await connect();

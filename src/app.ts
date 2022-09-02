@@ -12,6 +12,9 @@ import routesChat from './routes/chat.routes';
 import { socketChatMessages } from './sockets/chat_socket';
 
 
+import { connect } from './database/connection';
+
+
 export class App {
 
     private app: Application;
@@ -66,7 +69,7 @@ export class App {
     async listen(port: string): Promise<void> {
 
         await this.httpServer.listen( port );
-        console.log(`SERVER RUN ON PORT ${ port }`)
+        console.log(`SERVIDORs RUN ON PORT ${ port }`)
     }
 
 }
